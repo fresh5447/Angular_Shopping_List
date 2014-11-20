@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Title Page</title>
+		<link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+		<!-- Bootstrap CSS -->
+	</head>
+	<body>
+		<h1 class="text-center">Angular App</h1>
+		
+	<div ng-controller="mainController">
+		<div class="jumbotron">
+			<div class="container text-center">
+				<h3 class="pull-left">This is my shopping list</h3> 
+				<p>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th class="text-center">Name</th>
+								<th class="text-center">Price</th>
+								<th class="text-center">Quantity</th>
+							</tr>
+						</thead>
+						<tbody> 
+							<tr ng-repeat="item in list | filter:searchText:name">
+								<td>{{ item.name }}</td>
+								<td>{{ item.value }}</td>
+								<td>{{ item.quantity }}</td>
+							</tr >Search <input ng-model="searchText">	
+						</tbody>
+					</table>
+					<div class="row">
+				
+						Name<input ng-model="itemName">
+						Price<input ng-model="itemValue">
+						Quantity <input ng-model="itemQuantity">
+						<button type="button" class="btn btn-success" ng-click="addItem(itemName, itemValue, itemQuantity)">Submit</button>
+					
+					</div>
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+		<!-- jQuery -->
+		<!-- Bootstrap JavaScript -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.js"></script>
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<script src="main.js"></script>
+	</body>
+</html>
